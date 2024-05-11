@@ -5,7 +5,8 @@
 1. Install Node.js v18.17.1 or higher. We recommend [installing Volta](https://docs.volta.sh/guide/getting-started)
    to auto switch Node.js versions between projects seamlessly.
 2. `npm i`
-3. `npm run dev` and visit `http://localhost:3001`
+3. `cp .env.local.example .env.local` and fill in the empty values
+4. `npm run dev` and visit `http://localhost:3001`
 
 ## Learn more
 
