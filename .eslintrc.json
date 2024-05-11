@@ -6,6 +6,13 @@
     "prettier",
     "plugin:@typescript-eslint/recommended"
   ],
+  "overrides": [
+    {
+      // enable eslint-plugin-testing-library & eslint-plugin-jest-dom for test files only
+      "files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
+      "extends": ["plugin:jest-dom/recommended", "plugin:testing-library/react"]
+    }
+  ],
   "rules": {
     "no-console": "warn",
     "no-unused-vars": "off",

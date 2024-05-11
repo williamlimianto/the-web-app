@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['stylelint-config-prettier'],
-  ignoreFiles: ['.next/**/*', 'node_modules/**/*'],
+  ignoreFiles: ['coverage/**/*', '.next/**/*', 'node_modules/**/*'],
   rules: {
     'at-rule-no-unknown': [
       true,
