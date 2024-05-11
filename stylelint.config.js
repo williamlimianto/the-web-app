@@ -2,6 +2,18 @@ module.exports = {
   extends: ['stylelint-config-prettier'],
   ignoreFiles: ['.next/**/*', 'node_modules/**/*'],
   rules: {
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: [
+          'tailwind',
+          'apply',
+          'variants',
+          'responsive',
+          'screen',
+        ],
+      },
+    ],
     'selector-pseudo-class-no-unknown': [
       true,
       {
