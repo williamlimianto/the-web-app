@@ -1,7 +1,7 @@
-import styles from './index.module.css';
+import DummyHeading from "@components/DummyHeading";
 
 const LandingPage = () => {
-  return <h1 className={styles.heading}>Hello world</h1>;
+  return <DummyHeading />
 };
 
 export default LandingPage;
