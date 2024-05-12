@@ -1,0 +1,9 @@
+.dropdown_input_wrapper {
+  @screen lg {
+    max-width: 400px
+  }
+}
+
+.dropdown_input {
+  margin: theme('spacing.4');
+}

@@ -1,5 +1,0 @@
-.heading {
-  border-radius: theme('borderRadius.lg');
-  background-color: theme('colors.red.50');
-  padding: theme('spacing.4');
-}
