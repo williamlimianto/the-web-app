@@ -4,10 +4,10 @@ import { IconChevronDown } from '@components/Icons';
 import PopoverWrapper from '@components/PopoverWrapper';
 import { usePopoverWrapperState } from '@components/PopoverWrapper/hooks/usePopoverWrapperState';
 import { usePopoverWrapperStyles } from '@components/PopoverWrapper/hooks/usePopoverWrapperStyles';
+import { DEFAULT_PLACEHOLDER_TEXT } from './constants';
 import { DropdownOption } from './types';
 
 import styles from './index.module.css';
-import { DEFAULT_PLACEHOLDER_TEXT } from './constants';
 
 export type DropdownInputProps<T> = {
   rootClassname?: string;
@@ -92,13 +92,13 @@ const DropdownInput = <T,>({
         <p className={styles.text_info_remark}>{infoRemarkText}</p>
       )}
 
-      {!disabled && (
+      {!disabled && !!(options || []).length && (
         <PopoverWrapper
           className={styles.popover_wrapper}
           isOpen={isOpen}
           style={popoverStyles}
         >
-          {(options || []).map((itemObj, idx) => {
+          {options.map((itemObj, idx) => {
             return (
               <div
                 key={`dropdown-option-item-${idx}`}
