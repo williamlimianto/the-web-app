@@ -1,6 +1,6 @@
 import { API_ENDPOINT } from '@lib/config/api';
 import { fetch } from '@lib/fetch';
-import { Country, State } from '@lib/types/location';
+import type { Country, State } from '@lib/types/location';
 
 export const getCountryList: () => Promise<Country[]> = async () => {
   const apiResponse = await fetch<Country[]>(API_ENDPOINT.COUNTRY_LIST, {});
@@ -16,7 +16,7 @@ export const getStateList: (countryId: number) => Promise<Country[]> = async (
   countryId
 ) => {
   const apiResponse = await fetch<State[]>(
-    `${API_ENDPOINT.COUNTRY_LIST}/${countryId || ''}/states`,
+    `${API_ENDPOINT.COUNTRY_LIST}/${countryId}/states`,
     {}
   );
 

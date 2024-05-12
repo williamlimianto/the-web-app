@@ -1,13 +1,24 @@
 import type { FC, ReactElement } from 'react';
 
 import { render, RenderOptions } from '@testing-library/react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+});
 
 /* React Testing Library */
 
 // Ref: https://testing-library.com/docs/react-testing-library/setup#custom-render
 const AllTheProviders: FC = ({ children }) => {
   // wrap children with other providers that you may use, e.g. react-query <QueryClientProvider>
-  return <>{children}</>;
+  return (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
 };
 
 const customRender = (

@@ -6,12 +6,11 @@ const apiFetch: <T>(
   endpoint: string,
   initArg: RequestInit
 ) => Promise<FetchResponse<T | null>> = async (endpoint, initArg) => {
-  const finalUrl = endpoint || '';
   const finalArgs = constructFetchArgs({
     ...initArg,
   });
 
-  const responseObj = await fetch(finalUrl, finalArgs);
+  const responseObj = await fetch(endpoint, finalArgs);
   const responseStatus = responseObj?.status;
   const responseStatusText = responseObj?.statusText;
 

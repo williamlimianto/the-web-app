@@ -17,18 +17,20 @@ const LandingPage = () => {
   return (
     <>
       <h1>Country List Data:</h1>
-      <pre>
+      <pre data-testid="dummy-pre-country">
         {JSON.stringify(
           isFetchCountryListError
-            ? countryListFetchErrorObj
+            ? (countryListFetchErrorObj as Error)?.toString()
             : countryListData || []
         )}
       </pre>
 
       <h1>State List Data:</h1>
-      <pre>
+      <pre data-testid="dummy-pre-state">
         {JSON.stringify(
-          isFetchStateListError ? stateListFetchErrorObj : stateListData || []
+          isFetchStateListError
+            ? (stateListFetchErrorObj as Error)?.toString()
+            : stateListData || []
         )}
       </pre>
     </>
