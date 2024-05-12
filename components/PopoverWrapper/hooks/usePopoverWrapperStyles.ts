@@ -1,14 +1,14 @@
 import { CSSProperties, RefObject, useEffect, useState } from 'react';
 
 export type UsePopoverWrapperStylesProps<T> = {
-  parentContainerRef: T;
+  anchorRef: T;
   offset?: number;
 };
 
 export const usePopoverWrapperStyles = <
   T extends RefObject<HTMLElement | null>
 >({
-  parentContainerRef,
+  anchorRef,
   offset,
 }: UsePopoverWrapperStylesProps<T>) => {
   const [styles, setStyles] = useState<CSSProperties>({});
@@ -17,17 +17,19 @@ export const usePopoverWrapperStyles = <
   //       whenever user resizing their browser screen.
   useEffect(() => {
     const computeGeneratedStyles = () => {
-      const parentElement = parentContainerRef?.current;
+      const windowInnerWidth = window.innerWidth;
+      const anchorElement = anchorRef?.current;
 
-      const parentElementPosition = parentElement?.getBoundingClientRect();
-      const parentElementTop = parentElementPosition?.top || 0;
-      const parentElementLeft = parentElementPosition?.left || 0;
-
-      const parentElementHeight = parentElementPosition?.height || 0;
+      const anchorElementPosition = anchorElement?.getBoundingClientRect();
+      const anchorElementTop = anchorElementPosition?.top || 0;
+      const anchorElementLeft = anchorElementPosition?.left || 0;
+      const anchorElementRight = anchorElementPosition?.right || 0;
+      const anchorElementHeight = anchorElementPosition?.height || 0;
 
       return {
-        top: parentElementTop + parentElementHeight + (offset || 0),
-        left: parentElementLeft,
+        top: anchorElementTop + anchorElementHeight + (offset || 0),
+        left: anchorElementLeft,
+        right: windowInnerWidth - anchorElementRight,
       } as CSSProperties;
     };
 
