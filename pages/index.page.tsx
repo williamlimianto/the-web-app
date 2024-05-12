@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Head from 'next/head';
 import DropdownInput from '@components/Form/DropdownInput';
 import { useCountryListQuery, useStateListQuery } from '@lib/hooks/location';
 import {
@@ -41,6 +42,14 @@ const LandingPage = () => {
 
   return (
     <>
+      <Head>
+        <title>The Web App - A Simple Web Appplication in the town!</title>
+        <meta
+          name="description"
+          content="The Web App is a Simple Web Appplication in the town created by fellow passioniate engineer."
+        />
+      </Head>
+
       <div className={styles.dropdown_input_wrapper}>
         <DropdownInput
           rootClassname={styles.dropdown_input}
