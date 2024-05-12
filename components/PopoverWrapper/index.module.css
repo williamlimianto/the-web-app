@@ -1,0 +1,36 @@
+.popover_wrapper {
+  position: absolute;
+  background-color: theme('colors.white');
+  border-radius: theme('borderRadius.lg');
+  box-shadow: theme('boxShadow.xl');
+  z-index: theme('zIndex.1001');
+  animation: popover-show 0.25s ease-in-out forwards;
+
+  &.closing {
+    animation: popover-hide 0.25s ease-in-out forwards;
+  }
+}
+
+@keyframes popover-show {
+  0% {
+    opacity: 0;
+    transform: translateY(calc(-1 * theme('translate.4')));
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popover-hide {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * theme('translate.4')));
+  }
+}
