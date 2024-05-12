@@ -3,6 +3,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
   ],
-  theme: {},
+  theme: {
+    zIndex: {
+      1000: '1000',
+      1001: '1001'
+    }
+  },
   plugins: [],
 };

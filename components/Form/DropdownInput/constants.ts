@@ -1,0 +1,1 @@
+export const DEFAULT_PLACEHOLDER_TEXT = 'Please select any option';
