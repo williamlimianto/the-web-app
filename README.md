@@ -18,7 +18,7 @@ For this project, we are implementing Structure of the following:
 ## Project Architecture 
 For this project, we are implementing Architecture of the following:
 -  `Repository (our fetch common helper)`: the goal of this layer is only to call the API endpoints without needing to know any API Payload-related and UI-related business logic.
--  `Domain (services folder)`: the goal of this layer is to perform API Payload-related computation, meaning this layer doesn't know about UI-related business logic.
+-  `Domain (API Routes/proxy)`: the goal of this layer is to perform API Payload-related computation, meaning this layer doesn't know about UI-related business logic.
 -  `Presentational (UI and react-query)`: the goal of this layer is to perform UI flow based on required business logic. This layer will operate based on the data from Domain Layer AND also generate an output of the required data for Domain Layer.
 
 ## Learn more
