@@ -1,14 +1,22 @@
 import { useQuery } from 'react-query';
-import { getStateList } from '@lib/services/location';
+import { FetchResponse } from '@lib/fetch/types';
+import { fetch } from '@lib/fetch';
+import { State } from '@lib/types/location';
+import { API_ENDPOINT } from '@lib/config/api';
 
 export const useStateListQuery = (countryId: number | null) => {
   return useQuery(
     ['stateList', countryId],
     async () => {
-      // NOTE: eslint exception added here to satisfy ESLint warning.
-      //       (Since the value cannot be null, already handled by 'enabled' property below)
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      return await getStateList(countryId!);
+      const origin = window.location.origin;
+      const responseObj = await fetch<FetchResponse<State[] | null>>(
+        `${origin}${API_ENDPOINT.API_ROUTES.STATE_LIST}/${countryId}`,
+        {}
+      );
+
+      const responseData = responseObj?.data;
+
+      return responseData?.data || ([] as State[]);
     },
     {
       enabled: !!countryId,

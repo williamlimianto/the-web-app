@@ -39,6 +39,9 @@ module.exports = {
   },
   modulePathIgnorePatterns: ['/mockData.(js|jsx|ts|tsx)'],
   testEnvironment: 'jsdom',
+  testEnvironmentOptions: {
+    url: 'http://localhost:3000',
+  },
   testTimeout: 40000,
   transform: {
     /* Use babel-jest to transpile tests with the next/babel preset
