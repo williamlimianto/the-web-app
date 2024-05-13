@@ -1,16 +1,11 @@
 import { API_RESPONSE_FALLBACK } from '@lib/config/api';
-import { constructFetchArgs } from './constructFetchArgs';
 import { FetchResponse } from './types';
 
 const apiFetch: <T>(
   endpoint: string,
   initArg: RequestInit
 ) => Promise<FetchResponse<T | null>> = async (endpoint, initArg) => {
-  const finalArgs = constructFetchArgs({
-    ...initArg,
-  });
-
-  const responseObj = await fetch(endpoint, finalArgs);
+  const responseObj = await fetch(endpoint, initArg);
   const responseStatus = responseObj?.status;
   const responseStatusText = responseObj?.statusText;
 
