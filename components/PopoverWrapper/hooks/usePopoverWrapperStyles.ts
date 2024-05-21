@@ -2,6 +2,7 @@ import { CSSProperties, RefObject, useEffect, useState } from 'react';
 
 export type UsePopoverWrapperStylesProps<T> = {
   anchorRef: T;
+  isListenerEnabled?: boolean;
   offset?: number;
 };
 
@@ -9,6 +10,7 @@ export const usePopoverWrapperStyles = <
   T extends RefObject<HTMLElement | null>
 >({
   anchorRef,
+  isListenerEnabled = true,
   offset,
 }: UsePopoverWrapperStylesProps<T>) => {
   const [styles, setStyles] = useState<CSSProperties>({});
@@ -38,12 +40,15 @@ export const usePopoverWrapperStyles = <
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
+
+    if (isListenerEnabled) {
+      window.addEventListener('resize', handleResize);
+    }
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [isListenerEnabled]);
 
   return styles;
 };

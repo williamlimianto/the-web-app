@@ -43,6 +43,7 @@ const DropdownInput = <T,>({
   });
   const popoverStyles = usePopoverWrapperStyles({
     anchorRef: inputRef,
+    isListenerEnabled: isOpen,
   });
 
   const selectedOptionsObj =
