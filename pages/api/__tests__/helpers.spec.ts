@@ -1,6 +1,6 @@
 import { constructFetchArgs } from '../helpers';
 
-describe('API Routes', () => {
+describe('API Routes - Helpers', () => {
   describe('constructFetchArgs', () => {
     const OLD_ENV = process.env;
 
@@ -33,6 +33,15 @@ describe('API Routes', () => {
 
       expect(expected).toStrictEqual({
         headers: { 'X-API-Key': 'dummyKey' },
+      });
+    });
+
+    it('should still able to return result properly with invalid env', () => {
+      process.env = { ...OLD_ENV };
+      const expected = constructFetchArgs(null as unknown as RequestInit);
+
+      expect(expected).toStrictEqual({
+        headers: {},
       });
     });
   });
