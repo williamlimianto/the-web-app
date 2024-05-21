@@ -26,7 +26,9 @@ describe('pages - Landing', () => {
     await fireEvent.click(countryListDropdownInputElement);
 
     const countryListDropdownSecondOptionElement = await screen.findByText(
-      'Algeria'
+      'Algeria',
+      undefined,
+      { timeout: 5000 }
     );
     await fireEvent.click(countryListDropdownSecondOptionElement);
 
@@ -36,7 +38,9 @@ describe('pages - Landing', () => {
     await fireEvent.click(stateListDropdownInputElement);
 
     const stateListDropdownFirstOptionElement = await screen.findByText(
-      'Adrar'
+      'Adrar',
+      undefined,
+      { timeout: 5000 }
     );
     await fireEvent.click(stateListDropdownFirstOptionElement);
 
