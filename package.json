@@ -55,6 +55,7 @@
     "jest": "^27.3.1",
     "lint-staged": "^12.3.3",
     "next-router-mock": "^0.6.9",
+    "node-mocks-http": "^1.14.1",
     "postcss": "^8.4.6",
     "postcss-import": "^16.1.0",
     "prettier": "^2.5.1",
