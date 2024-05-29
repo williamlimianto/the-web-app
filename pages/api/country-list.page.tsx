@@ -26,12 +26,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     if (reqMethod === 'GET') {
       const responseData = await fetchGetCountryList();
-
-      if (responseData) {
-        return res.status(200).json(responseData);
-      }
-
-      return res.status(500).json(responseData);
+      
+      return res.status(200).json(responseData);
     }
 
     throw new Error('Invalid HTTP Method');
